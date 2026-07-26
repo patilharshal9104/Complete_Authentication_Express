@@ -8,7 +8,7 @@ const generatteResetToken = ()=>{
     .update(rawToken)
     .digest("hex")
 
-    return {rawToken, hasheToken}
+    return {rawToken, hashedToken}
 }
 
 export {
