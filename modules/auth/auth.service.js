@@ -43,6 +43,11 @@ const login = async ({ email, password }) => {
 
   // somehow I will check password
 
+  //111
+  const isMatch = await user.comparePassword(password)
+  if(!isMatch) throw ApiError.unauthorized("Invalid email or password")
+
+    //###
   if (!user.isVerified) {
     throw ApiError.forbidden("Please verify your email before loggin");
   }
