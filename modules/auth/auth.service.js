@@ -104,4 +104,4 @@ const forgotPassword = async (email) => {
   //TODO: mail bhejna nhi aata
 };
 
-export { register };
+export { register, login, refresh, logout, forgotPassword};
