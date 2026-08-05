@@ -44,10 +44,10 @@ const login = async ({ email, password }) => {
   // somehow I will check password
 
   //111
-  const isMatch = await user.comparePassword(password)
-  if(!isMatch) throw ApiError.unauthorized("Invalid email or password")
+  const isMatch = await user.comparePassword(password);
+  if (!isMatch) throw ApiError.unauthorized("Invalid email or password");
 
-    //###
+  //###
   if (!user.isVerified) {
     throw ApiError.forbidden("Please verify your email before loggin");
   }
@@ -104,4 +104,10 @@ const forgotPassword = async (email) => {
   //TODO: mail bhejna nhi aata
 };
 
-export { register, login, refresh, logout, forgotPassword};
+const getMe = async (userId) => {
+  const user = await User.findById(userId);
+  if (!user) throw ApiError.notfound("User not found");
+  return user;
+};
+
+export { register, login, refresh, logout, forgotPassword };
